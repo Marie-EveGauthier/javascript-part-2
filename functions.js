@@ -40,3 +40,11 @@ function square(num){
 }
 var myArray = [2,3,4,5];
 myArray.map(square);
+
+
+//run a code with map that will return the square of the num property of object
+function squareOfObject(myObjects){
+    return myObjects.num * myObjects.num;
+}
+var myObjects = [{num:2}, {num:3}, {num:4}, {num:5}];
+myObjects.map(squareOfObject);
