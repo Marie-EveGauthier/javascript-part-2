@@ -42,9 +42,41 @@ var myArray = [2,3,4,5];
 myArray.map(square);
 
 
-//run a code with map that will return the square of the num property of object
+//run a code with map that will return the square of the num property of objects
 function squareOfObject(myObjects){
     return myObjects.num * myObjects.num;
 }
 var myObjects = [{num:2}, {num:3}, {num:4}, {num:5}];
 myObjects.map(squareOfObject);
+
+
+
+
+/*Defining a function that takes one argument(it's this argument that tells which operation executes).
+*and that returns an other function that takes two arguments. They are the two numbers for the operation.
+*/
+function operationMaker(operation){
+    switch(operation){
+        case "add":
+            return function(num1, num2){
+                return (num1 + num2);
+            };           
+        case "subtract":
+            return function(num1, num2){
+                return (num1-num2);
+            };
+        case "mult":
+            return function(num1, num2){
+                return (num1 * num2);
+            };
+        case "div":
+            return function(num1, num2){
+                return (num1 / num2);
+            };
+        default:
+            console.log("This is not an operation. Try again!");
+       
+    }
+}
+var adder = operationMaker("add");
+var sum = adder(5, 10);
