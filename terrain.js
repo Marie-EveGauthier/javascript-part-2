@@ -40,3 +40,12 @@ Tile.prototype = {
          }
      }
 };
+
+var mapOfTiles = [];
+    
+for (i=0; i<20; i++){
+    mapOfTiles[i]= [];
+    for (j=0; j<20; j++) {
+        mapOfTiles[i][j] = new Tile(i,j);
+    }
+}
