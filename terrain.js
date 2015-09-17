@@ -22,7 +22,9 @@ Tile.prototype = {
                 this.condition === "frozen";
                 break;
             case "frozen":
-                this.height += 1;
+                if(this.height<3){
+                    this.height += 1;
+                }
                 break;
         }
     },
@@ -35,23 +37,23 @@ Tile.prototype = {
                 this.condition === "burning";
                 break;
             case "burning":
-                this.heigth -= 1; 
-                this.heigth >= 0;
+                if(this.height>0){
+                    this.heigth -= 1;
+                }
                 break;
          }
      }
 };
-
 /* This is a piece of code that use the Tile constructor to create a 20x20 map of Tiles. 
 *The map will be a 2D array (array inside array).
 */
 
 var mapOfTiles = [];
     
-for (i=0; i<20; i++){
-    mapOfTiles[i]= [];
-    for (j=0; j<20; j++) {
-        mapOfTiles[i][j] = new Tile(i,j);
+for (x=0; x<20; x++){
+    mapOfTiles[x]= [];
+    for (y=0; y<20; y++) {
+        mapOfTiles[x][y] = new Tile(x,y);
     }
 }
 
@@ -60,10 +62,29 @@ for (i=0; i<20; i++){
 *The map will be presented 20 lines of 20 tiles each
 */
 
-for (i=0; i<20; i++){ 
-    var line = "";
-    for (j=0; j<20; j++){
-        line = line + mapOfTiles[i][j].height;        
+function printMapOfTiles(){
+    for (x=0; x<20; x++){ 
+        var line = "";
+        for (y=0; y<20; y++){
+            line = line + mapOfTiles[x][y].height;        
+        }
+        console.log(line);
     }
-    console.log(line);
 }
+
+//Go thru all the map again, randomly burning and freezing some tiles. Then, re-output the map in the same way again
+var randomTilesAffected = Math.floor(Math.random() * (400 - 10 +1)) + 10;
+var x = 0;
+var y = 0;
+for (var i=0; i<randomTilesAffected; i++) {
+    x = Math.floor(Math.random() * (19 + 1));
+    y = Math.floor(Math.random() * (19 + 1));
+
+    if(Math.random() < 0.5) {
+        mapOfTiles[x][y].burn();
+    } else {
+        mapOfTiles[x][y].freeze();
+    }
+}
+
+printMapOfTiles(); 
