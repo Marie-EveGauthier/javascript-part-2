@@ -13,26 +13,30 @@ function Tile(x,y){
 
 Tile.prototype = {
     freeze: function (){
-        if (this.condition === "burning") {
-            this.condition === "normal";
-        }
-        else if (this.condition === "normal"){
-            this.condition === "frozen";
-        }
-        else if (this.condition === "frozen") {
-            this.height += 1;
+        switch(this.condition) {
+            case "burning":
+                this.condition === "normal";
+                break;
+            case "normal":
+                this.condition === "frozen";
+                break;
+            case "frozen":
+                this.height += 1;
+                break;
         }
     },
     burn: function(){
-        if (this.condition === "frozen") {
-            this.condition === "normal";
-        }
-        else if (this.condition === "normal") {
-             this.condition === "burning";
-        }
-        else if (this.condition === "burning") {
-            this.heigth -= 1; 
-            this.heigth >= 0;
-        }
-    }
+        switch(this.condition) {
+            case "frozen":
+                this.condition === "normal";
+                break;
+            case "normal":
+                this.condition === "burning";
+                break;
+            case "burning":
+                this.heigth -= 1; 
+                this.heigth >= 0;
+                break;
+         }
+     }
 };
