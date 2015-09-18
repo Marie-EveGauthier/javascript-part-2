@@ -26,6 +26,8 @@ Tile.prototype = {
                     this.height += 1;
                 }
                 break;
+            default: 
+                break;
         }
     },
     burn: function(){
@@ -40,6 +42,8 @@ Tile.prototype = {
                 if(this.height>0){
                     this.heigth -= 1;
                 }
+                break;
+            default: 
                 break;
          }
      }
