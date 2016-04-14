@@ -55,7 +55,7 @@ if (a.email > b.email) {
     
 }));
 
-//This function takes a number and return its square.
+//This function takes a number and return its square Then, use this function with map on an array of numbers to check the result.
 
 function square(element) {
     return element * element;
@@ -64,5 +64,21 @@ function square(element) {
 var numbers = [2, 3, 4];
 
 console.log(numbers.map(square));
+
+/*This function should be able to take an object and square its “num” property. 
+Then, use this function with map on an array of objects each containing a “num” property.
+*/
+
+function squareOfNumProperty (obj) {
+    return obj.num * obj.num;
+}
+
+var arrOfObj = [
+    {num: 2},
+    {num: 3},
+    {num: 4}
+];
+
+console.log(arrOfObj.map(squareOfNumProperty));
 
     
