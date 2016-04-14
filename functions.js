@@ -81,4 +81,32 @@ var arrOfObj = [
 
 console.log(arrOfObj.map(squareOfNumProperty));
 
+/*Create a function called operationMaker that takes only a string called operation as argument. 
+This string could be “add”, “subtract”, “mult” or “div”. 
+Your function will return a function that will take two numbers and return the result of running operation on these numbers. 
+*/
+
+function operationMaker(operation) {
+    function operationResult(num1, num2) {
+        switch(operation) {
+            case "add":
+                return num1 + num2;
+            case "subtract":
+                return num1 - num2;
+            case "mult":
+                return num1 * num2;
+            case "div":
+                return num1 / num2;
+            default:
+                return "Please, enter a valid operation";
+        }
+    }
+    return operationResult;
+}
+
+var adder = operationMaker("add");
+var sum = adder(5, 10); 
+
+console.log(sum);
+
     
