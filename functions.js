@@ -55,4 +55,14 @@ if (a.email > b.email) {
     
 }));
 
+//This function takes a number and return its square.
+
+function square(element) {
+    return element * element;
+}
+
+var numbers = [2, 3, 4];
+
+console.log(numbers.map(square));
+
     
